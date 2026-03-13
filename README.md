@@ -12,6 +12,24 @@ Each experiment presents the same prompt to multiple models in two phases:
 
 Comparing the two phases across model tiers (Haiku, Sonnet, Opus) reveals whether skills measurably change output quality, specificity, and depth.
 
+## Why This Matters: The Born-On Date Problem
+
+Every model has a **knowledge cutoff** — the date after which it has no reliable information from training. This is effectively its **born-on date**.
+
+| Model | Knowledge Cutoff |
+|---|---|
+| Haiku 4.5 | Feb 2025 |
+| Opus 4.6 | May 2025 |
+| Sonnet 4.6 | Aug 2025 |
+
+Skills fill the gap between a model's born-on date and the present. This creates a practical challenge for skill content management:
+
+- **Content after the cutoff** is net-new knowledge the model cannot have without skills
+- **Content before the cutoff** may still add structure and vocabulary, but the model has some baseline from training
+- **As models get newer, skills can shrink** — content absorbed into training becomes redundant context
+
+This means skill content isn't static. It should be reviewed against current model cutoffs to trim what's been absorbed and focus context budget on what's genuinely new or structurally valuable. The highest-ROI skill content provides **thinking frameworks** (diagnostic tables, decision trees, sequencing patterns) rather than temporal facts — these remain valuable regardless of cutoff date.
+
 ## Directory Layout
 
 ```
