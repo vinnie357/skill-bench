@@ -53,15 +53,17 @@ Be specific — reference particular sections, examples, or frameworks from the 
 
 Experiment run on 2026-03-13 using Claude Code CLI v2.1.63 with default alias resolution:
 
-| Alias | Resolved Model ID | Family |
-|---|---|---|
-| `haiku` | `claude-haiku-4-5-20251001` | Claude Haiku 4.5 |
-| `sonnet` | `claude-sonnet-4-6` | Claude Sonnet 4.6 |
-| `opus` | `claude-opus-4-6` | Claude Opus 4.6 |
+| Alias | Resolved Model ID | Family | Knowledge Cutoff | Training Data Cutoff |
+|---|---|---|---|---|
+| `haiku` | `claude-haiku-4-5-20251001` | Claude Haiku 4.5 | Feb 2025 | Jul 2025 |
+| `sonnet` | `claude-sonnet-4-6` | Claude Sonnet 4.6 | Aug 2025 | Jan 2026 |
+| `opus` | `claude-opus-4-6` | Claude Opus 4.6 | May 2025 | Aug 2025 |
 
 The orchestrating agent (which ran analysis and wrote comparison/findings) was also `claude-opus-4-6`.
 
 **Note:** Claude Code's `--model` flag accepts shorthand aliases (e.g., `haiku`) that resolve to the latest available version at runtime. Future runs with the same aliases may use different model versions. Always record the resolved model IDs for reproducibility.
+
+Model reference: [Anthropic Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview)
 
 ---
 
