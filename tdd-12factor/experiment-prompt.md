@@ -49,6 +49,22 @@ Be specific — reference particular sections, examples, or frameworks from the 
 
 ---
 
+## Model Versions
+
+Experiment run on 2026-03-13 using Claude Code CLI v2.1.63 with default alias resolution:
+
+| Alias | Resolved Model ID | Family |
+|---|---|---|
+| `haiku` | `claude-haiku-4-5-20251001` | Claude Haiku 4.5 |
+| `sonnet` | `claude-sonnet-4-6` | Claude Sonnet 4.6 |
+| `opus` | `claude-opus-4-6` | Claude Opus 4.6 |
+
+The orchestrating agent (which ran analysis and wrote comparison/findings) was also `claude-opus-4-6`.
+
+**Note:** Claude Code's `--model` flag accepts shorthand aliases (e.g., `haiku`) that resolve to the latest available version at runtime. Future runs with the same aliases may use different model versions. Always record the resolved model IDs for reproducibility.
+
+---
+
 ## Skill Sources
 
 - `skills/tdd-skill.md` — Full TDD skill content from `core:tdd` (vinnie357/core v0.1.17)

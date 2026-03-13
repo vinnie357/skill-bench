@@ -13,6 +13,30 @@ Step-by-step phased guide for running a skill impact experiment. Written for a C
 
 ---
 
+## Recording Model Versions
+
+**Critical for reproducibility.** Claude Code's `--model` flag accepts shorthand aliases (`haiku`, `sonnet`, `opus`) that resolve to the latest available version at runtime. The same alias may resolve to different model IDs over time as new versions are released.
+
+Every experiment must record in `experiment-prompt.md`:
+
+1. **Date** the experiment was run
+2. **Claude Code CLI version** (`claude --version`)
+3. **Resolved model IDs** for each alias used, in a table:
+
+```markdown
+| Alias | Resolved Model ID | Family |
+|---|---|---|
+| `haiku` | `claude-haiku-4-5-20251001` | Claude Haiku 4.5 |
+| `sonnet` | `claude-sonnet-4-6` | Claude Sonnet 4.6 |
+| `opus` | `claude-opus-4-6` | Claude Opus 4.6 |
+```
+
+4. **Orchestrator model** — what model ran the analysis and wrote comparison/findings
+
+To determine resolved model IDs: check the Claude Code release notes or model documentation for current alias mappings. The system prompt for a running session includes the exact model ID (e.g., "You are powered by the model named Opus 4.6. The exact model ID is claude-opus-4-6.").
+
+---
+
 ## Phase 1: Setup
 
 Create the experiment directory structure and prepare skill files.
@@ -29,6 +53,7 @@ TaskCreate: "Write experiment prompt"
     - Phase 1 prompt (without skills)
     - Phase 2 prompt (with skills, referencing skill file locations)
     - Skill source attribution
+    - Model versions table (see "Recording Model Versions" below)
 
 TaskCreate: "Copy skill files"
   - Copy skill documents into <topic>/skills/
@@ -234,7 +259,7 @@ To run this experiment with different skill content:
 
 - [ ] Topic directory created with `skills/`, `haiku/`, `sonnet/`, `opus/` subdirs
 - [ ] Skill files copied to `skills/`
-- [ ] experiment-prompt.md written with both phase prompts
+- [ ] experiment-prompt.md written with both phase prompts and model versions recorded
 - [ ] 3 baseline responses generated (without skills)
 - [ ] 3 skill responses generated (with skills)
 - [ ] comparison.md written
